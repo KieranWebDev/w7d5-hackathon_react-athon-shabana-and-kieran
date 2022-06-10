@@ -3,11 +3,11 @@ export const motivationalQuoteArray = [
   'Suck it up, buttercup!',
   "You're the best!",
   'Do more!',
-  'Come one keep going!',
+  'Smash it!',
   'Dig deeper!!!!',
   'A chore a day keeps the guilt away',
   'is that all you got?',
-  "I bet you can't to all your task, mate",
+  'You can have a cookie if you finish everything',
 ];
 
 export default motivationalQuoteArray;

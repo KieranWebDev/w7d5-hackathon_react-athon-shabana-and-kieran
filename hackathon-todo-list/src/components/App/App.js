@@ -27,7 +27,7 @@ function App() {
     setNewTaskToDo('');
 
     if (!newTaskToDo) {
-      alert('Please enter something'); //little bit broken
+      alert('Please enter something'); //BROKEN FIX LATER
     }
     return;
   }
@@ -37,10 +37,10 @@ function App() {
     setListItems(newArray);
   }
 
+  //Functions for Quotes
   function handleClick() {
     let randomQuote = Math.floor(Math.random() * motivationalQuoteArray.length);
 
-    // setBootcamperIndex(bootcampers[randomBootcamperName]);
     setMotivationalQuote(motivationalQuoteArray[randomQuote]);
   }
 
