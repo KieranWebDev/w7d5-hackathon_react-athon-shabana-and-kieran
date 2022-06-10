@@ -1,60 +1,46 @@
 import { useState } from 'react';
 import './App.css';
+import Input from '../Input/index';
+import ListItems from '../ListItems/index';
 
 function App() {
-  const [newItem, setNewItem] = useState('');
-  const [items, setItems] = useState([]);
+  const oldList = [];
+  const [newTaskToDo, setNewTaskToDo] = useState('');
+  const [listItems, setListItems] = useState(oldList);
 
   function addToList(e) {
-    setNewItem(e.target.value);
-    // console.log(newItem);
+    setNewTaskToDo(e.target.value);
   }
 
-  function addItem() {
-    // console.log(newItem);
+  const item = {
+    id: Math.floor(Math.random() * 1000),
+    value: newTaskToDo,
+  };
 
-    const item = {
-      id: Math.floor(Math.random() * 1000),
-      value: newItem,
-    };
+  function addItemToList() {
+    setListItems((oldList) => [...oldList, item]);
+    setNewTaskToDo('');
 
-    setItems((oldList) => [...oldList, item]);
-    setNewItem('');
-    // console.log(items);
-
-    if (!newItem) {
+    if (!newTaskToDo) {
       alert('Please enter something');
     }
     return;
   }
 
   function deleteItem(id) {
-    const newArray = items.filter((item) => item.id !== id);
-    setItems(newArray);
+    const newArray = listItems.filter((item) => item.id !== id);
+    setListItems(newArray);
   }
 
   return (
     <div className="App">
       <h1>To-do List</h1>
-      <input
-        type="text"
-        placeholder="Add item..."
-        value={newItem}
-        onChange={addToList}
+      <Input
+        newTaskToDo={newTaskToDo}
+        addToList={addToList}
+        addItemToList={addItemToList}
       />
-
-      <button onClick={() => addItem()}>Add to list</button>
-
-      <ul>
-        {items.map((item) => {
-          return (
-            <li key={item.id}>
-              {item.value}{' '}
-              <button onClick={() => deleteItem(item.id)}>Done!</button>
-            </li>
-          );
-        })}
-      </ul>
+      <ListItems listItems={listItems} deleteItem={deleteItem} />
     </div>
   );
 }
