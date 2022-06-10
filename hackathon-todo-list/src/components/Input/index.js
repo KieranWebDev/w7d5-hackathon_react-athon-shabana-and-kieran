@@ -1,7 +1,7 @@
 const Input = function ({ newTaskToDo, addToList, addItemToList }) {
   return (
     <div>
-      <h3>list here</h3>
+      <h3>Add to list</h3>
       <input
         type="text"
         placeholder="Add item..."

@@ -1,4 +1,13 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
 }
 
+.quote {
+  color: #d90429;
+  font-size: 50px;
+}
